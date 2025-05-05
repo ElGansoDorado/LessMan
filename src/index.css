@@ -1,0 +1,36 @@
+html {
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+}
+
+html,
+body {
+	height: 100%;
+	background-color: #FAFAFA;
+}
+
+#root {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	background-color: #FAFAFA;
+	--main-text-color: #B15F32;
+	--main-text-color-hover: #653B25;
+
+	--main-color-black: #211C15;
+	--main-color-black-gray: #3D3C32;
+	--main-color-gray: #5F5F53;
+}
+
+main {
+	width: 1146px;
+	height: max-content;
+
+	flex: 1 1 auto;
+	display: flex;
+	gap: 32px;
+
+	position: relative;
+}

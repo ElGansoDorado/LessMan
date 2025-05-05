@@ -1,0 +1,40 @@
+.header {
+    height: 60px;
+
+    color: var(--main-text-color);
+}
+
+.container {
+    width: 1470px;
+    height: 100%;
+
+    margin: 0 auto;
+    gap: 24px;
+
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.separator {
+    width: 1px;
+    height: 30px;
+
+    background-color: #F98E5D;
+}
+
+.menu {
+    display: flex;
+    gap: 12px;
+}
+
+.menu a {
+    color: var(--main-text-color);
+}
+
+.menu a:hover {
+    color: var(--main-text-color-hover);
+}
