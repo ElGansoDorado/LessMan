@@ -25,9 +25,9 @@ body {
 }
 
 main {
-	width: 1146px;
 	height: max-content;
 
+	padding: 60px 20px;
 	flex: 1 1 auto;
 	display: flex;
 	gap: 32px;

@@ -9,7 +9,7 @@ export default function Header() {
         <div className={classes.container}>
             <ul className={classes.menu}>
                 <li data-tooltip="Poster">
-                    <NavLink to={'/'}>
+                    <NavLink to={'/poster'}>
                         <FontAwesomeIcon icon={faList} color='#F98E5D' />
                     </NavLink>
                 </li>
