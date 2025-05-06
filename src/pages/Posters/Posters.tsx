@@ -2,6 +2,7 @@ import classes from "./Posters.module.css"
 
 import PosterItem from "../../components/PosterItem/PosterItem"
 import { useLoaderData } from "react-router";
+import { Link } from "react-router";
 
 export default function Posters() {
     const list = useLoaderData<any[]>();
@@ -9,7 +10,11 @@ export default function Posters() {
     return <>
         <section className={classes.box}>
 
-            {list.map((post) => (<PosterItem key={post.title} title={post.title} text={post.body}/>))}
+            {list.map((post) =>
+            (<Link to={`/${post.id}`}>
+                <PosterItem key={post.title} title={post.title} text={post.body} />
+            </Link>
+            ))}
         </section>
     </>
 }
