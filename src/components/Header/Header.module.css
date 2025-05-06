@@ -2,6 +2,15 @@
     height: 60px;
 
     color: var(--main-text-color);
+    background-color: #FFF;
+
+    z-index: 2;
+    position: sticky;
+    top: 0;
+
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
 .container {
@@ -11,11 +20,8 @@
     margin: 0 auto;
     gap: 24px;
 
-    position: sticky;
-    top: 0;
-
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -27,14 +33,22 @@
 }
 
 .menu {
+    font-size: 24px;
     display: flex;
     gap: 12px;
 }
 
-.menu a {
-    color: var(--main-text-color);
-}
+.logo {
+    width: 35px;
+    height: 30px;
 
-.menu a:hover {
-    color: var(--main-text-color-hover);
+    border-radius: 50%;
+
+    background-color: #F98E5D;
+    color: #FFF;
+    cursor: pointer;
+
+    text-align: center;
+    font: 600 18px/30px 'Courier New';
+    vertical-align: middle;
 }
