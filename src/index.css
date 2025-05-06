@@ -16,12 +16,9 @@ body {
 	justify-content: space-between;
 
 	background-color: #FAFAFA;
-	--main-text-color: #B15F32;
-	--main-text-color-hover: #653B25;
 
-	--main-color-black: #211C15;
-	--main-color-black-gray: #3D3C32;
-	--main-color-gray: #5F5F53;
+	--main-color-green: #90C3BA;
+	--main-color-black: #556366;
 }
 
 main {

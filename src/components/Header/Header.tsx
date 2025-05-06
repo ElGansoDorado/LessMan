@@ -38,7 +38,7 @@ export default function Header() {
 
             <hr className={classes.separator} />
             
-            <NavLink to={'/profile'} data-tooltip="Profile">
+            <NavLink to={'/logout'} data-tooltip="Profile">
                 <FontAwesomeIcon icon={faCircleUser} color='#F98E5D' size='2x' />
             </NavLink>
         </div>
