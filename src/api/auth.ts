@@ -32,7 +32,7 @@ export async function register({request}: any) {
 export async function logout() {
     await signOut(auth);
     window.localStorage.removeItem('user-id');
-    return redirect('/sign-up');
+    return redirect('/authentication/sign-up');
 }
 
 export function onlyLoggedOut() {

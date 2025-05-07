@@ -5,15 +5,16 @@ type Props = {
     type: string;
     label: string;
     value: string | number;
-    setValue: Function; 
+    setValue: Function;
+    error: string; 
 }
 
-export default function AuthInput({id, type, label, value, setValue} : Props) {
+export default function AuthInput({id, type, label, value, setValue, error} : Props) {
     return <div className={classes.box}>
         <label htmlFor={id} className={classes.label}>{label}</label>
         <input 
             id={id}
-            className={classes.input}
+            className={error ? `${classes.input} ${classes.error}` : classes.input}
             type={type} 
             placeholder={`${label}...`} 
             value={value}

@@ -24,9 +24,17 @@
     box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
+.input.error {
+    border-bottom-color: #F00;
+}
+
 .input::placeholder {
     color: #90C3BA;
     font: 400 12px/16px 'Segoe UI';
+}
+
+.input.error::placeholder {
+    color: #F00;
 }
 
 .input:hover {
