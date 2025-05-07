@@ -1,19 +1,99 @@
 .box {
-    width: 260px;
+    width: 380px;
+    height: max-content;
+    padding: 20px 40px;
+
+    background-color: #27464C;
 
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 32px;
+}
+
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    margin-bottom: 4px;
+}
+
+.title {
+    color: #f98E5D;
+    font: 600 32px/120% 'Segoe UI';
 }
 
 .button {
     width: 100%;
     height: 30px;
 
-    background-color: var(--main-color-green);
+    background-color: #f98E5D;
 }
 
 .button input {
     width: 100%;
     height: 100%;
+
+    color: #FFF;
+    font: 600 18px/22px 'Segoe UI';
+}
+
+.helper {
+    display: flex;
+    justify-content: space-between;
+
+    color: #90C3BA;
+    font: 400 12px/16px 'Segoe UI';
+}
+
+.helper p {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.helper p:hover {
+    color: #f98E5D;
+}
+
+.separator {
+    width: 100%;
+    text-align: center;
+
+    font: 600 16px/120% 'Segoe UI';
+    text-transform: uppercase;
+    color: #90C3BA;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    width: 45%;
+    height: 1px;
+
+    color: #90C3BA;
+    background-color: #90C3BA;
+}
+
+.otherWays {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.otherWays li {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+    text-align: center;
+    color: #FFF;
+    background-color: #90C3BA;
+}
+
+.otherWays li:hover {
+    background-color: #f98E5D;
 }

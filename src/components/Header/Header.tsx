@@ -2,7 +2,7 @@ import classes from './Header.module.css'
 
 import { NavLink } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faCircleUser, faBell, faTicket, faList } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faCircleUser, faBell, faTicket, faList, faDoorOpen } from '@fortawesome/free-solid-svg-icons'
 
 import { useState } from 'react'
 import Search from '../UI/input/Search/Search'
@@ -37,9 +37,13 @@ export default function Header() {
             </ul>
 
             <hr className={classes.separator} />
-            
-            <NavLink to={'/logout'} data-tooltip="Profile">
+
+            <NavLink to={'/sign-up'} data-tooltip="Profile">
                 <FontAwesomeIcon icon={faCircleUser} color='#F98E5D' size='2x' />
+            </NavLink>
+
+            <NavLink to={'/logout'}>
+                <FontAwesomeIcon icon={faDoorOpen} color='#F98E5D' />
             </NavLink>
         </div>
     </header>

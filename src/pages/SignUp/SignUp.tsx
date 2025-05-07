@@ -13,6 +13,8 @@ export default function SignUp() {
     const [errorEmail, setErrorEmail] = useState('');
     const [errorPassword, setErrorPassword] = useState('');
     const [errorPasswordConfirm, setErrorPasswordConfirm] = useState('');
+
+    const [isShowPassword, setIsShowPassword] = useState('password');
     const fetcher = useFetcher();
 
     const handleFormReset = () => {
@@ -72,14 +74,32 @@ export default function SignUp() {
     };
 
     return <form className={classes.box} onSubmit={handleFormSubmit} onReset={handleFormReset}>
-        <h1>Sign Up</h1>
+        <h1 className={classes.title}>Sign Up</h1>
+        <div>
+            <span className={classes.inputBox}>
+                <AuthInput id="email" type="email" label="Email" value={email} setValue={setEmail}/>
+                <AuthInput id="password" type={isShowPassword} label="Password" value={password} setValue={setPassword}/>
+                <AuthInput id="passwordConfirm" type={isShowPassword} label="Password confirm" value={passwordConfirm} setValue={setPasswordConfirm}/>
+            </span>
 
-        <AuthInput id="email" type="email" value={email} setValue={setEmail}/>
-        <AuthInput id="password" type="password" value={password} setValue={setPassword}/>
-        <AuthInput id="passwordConfirm" type="password" value={passwordConfirm} setValue={setPasswordConfirm}/>
+            <div className={classes.helper}>
+                <p onClick={() => setIsShowPassword(isShowPassword === 'password' ? 'text' : 'password')}>
+                    {isShowPassword === 'password' ? 'Показать пароль' : 'Скрыть пароль'}
+                </p>
+                <p>Забыли пароль?</p>
+            </div>
+        </div>
 
         <div className={classes.button}>
-            <input name="submit" type="submit" value='Зарегистрироваться' />
+            <input name="submit" type="submit" value='Create an account' />
         </div>
+
+        <p className={classes.separator}>OR</p>
+
+        <ul className={classes.otherWays}>
+            <li>G</li>
+            <li>D</li>
+            <li>V</li>
+        </ul>
     </form>
 }
