@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "firebase/auth";
 import { redirect } from "react-router";
 
 import firebaseApp from "../configs/firebaseConfig";
@@ -16,15 +16,24 @@ function getUserId() {
 
 export async function register({request}: any) {
     const fd = await request.formData();
-    console.log(fd.get('email'));
-    console.log(fd.get('password'));
-    console.log(auth);
     try {
         const cr = await createUserWithEmailAndPassword( auth, fd.get('email'), fd.get('password'));
         window.localStorage.setItem('user-id', cr.user.uid);
         return redirect('/'); 
     }
     catch(err : any) {
+        return err.code;
+    }
+}
+
+export async function login({request} : any) {
+    const fd = await request.formData();
+    try {
+        const cr = await signInWithEmailAndPassword( auth, fd.get('email'), fd.get('password'));
+        window.localStorage.setItem('user-id', cr.user.uid);
+        return redirect('/');
+    }
+    catch (err : any) {
         return err.code;
     }
 }

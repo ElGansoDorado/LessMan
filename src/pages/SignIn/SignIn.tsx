@@ -3,14 +3,12 @@ import AuthInput from "../../components/UI/input/AuthInput/AuthInput";
 import { useState } from "react";
 import { useFetcher } from "react-router";
 
-export default function SignUp() {
+export default function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [passwordConfirm, setPasswordConfirm] = useState('');
 
     const [errorEmail, setErrorEmail] = useState('');
     const [errorPassword, setErrorPassword] = useState('');
-    const [errorPasswordConfirm, setErrorPasswordConfirm] = useState('');
 
     const [isShowPassword, setIsShowPassword] = useState('password');
     const fetcher = useFetcher();
@@ -18,23 +16,17 @@ export default function SignUp() {
     const handleFormReset = () => {
         setEmail('');
         setPassword('');
-        setPasswordConfirm('');
     };
 
     const resetErrorMessages = () => {
         setErrorEmail('');
         setErrorPassword('');
-        setErrorPasswordConfirm('');
     };
 
     if (fetcher.data) {
         resetErrorMessages();
-        if (fetcher.data === 'auth/email-already-in-use') {
-            setErrorEmail('Посетитель c таким адресом электронной почты уже зарегистрирован');
-
-        }
-        else if (fetcher.data === 'auth/weak-password') {
-            setErrorPassword('Слишком простой пароль');
+        if (fetcher.data === 'auth/invalid-credential') {
+            setErrorPassword('Неверный логин или пароль');
         }
         fetcher.data = undefined;
     }
@@ -49,14 +41,6 @@ export default function SignUp() {
             setErrorPassword("Пароль не указан!");
             return false;
         }
-        if (!passwordConfirm) {
-            setErrorPasswordConfirm("Повтор пароля не указан!");
-            return false;
-        }
-        if (password !== passwordConfirm) {
-            setErrorPassword("Выделенные пароли не совпадают!");
-            return false;
-        }
         return true;
     };
 
@@ -65,12 +49,12 @@ export default function SignUp() {
         evt.preventDefault();
         if (validate()) {
             fetcher.submit({ email, password },
-                { action: '/authentication/sign-up', method: 'post' });
+                { action: '/authentication/sign-in', method: 'post' });
         }
     };
 
     return <form className='container' onSubmit={handleFormSubmit} onReset={handleFormReset}>
-        <h1 className='title'>Sign Up</h1>
+        <h1 className='title'>Sign In</h1>
         <div>
             <span className='box'>
                 <AuthInput
@@ -88,28 +72,20 @@ export default function SignUp() {
                     value={password}
                     setValue={setPassword}
                     error={errorPassword} />
-
-                <AuthInput
-                    id="passwordConfirm"
-                    type={isShowPassword}
-                    label="Password confirm"
-                    value={passwordConfirm}
-                    setValue={setPasswordConfirm}
-                    error={errorPasswordConfirm} />
             </span>
 
             <div className='helper'>
                 <p onClick={() => setIsShowPassword(isShowPassword === 'password' ? 'text' : 'password')}>
                     {isShowPassword === 'password' ? 'Показать пароль' : 'Скрыть пароль'}
                 </p>
+                <p>Забыли пароль?</p>
             </div>
         </div>
 
         <div className='submit'>
-            <input name="submit" type="submit" value='Create an account' />
+            <input name="submit" type="submit" value='Login to your account' />
             {errorEmail && <p className="error">{errorEmail}</p>}
             {errorPassword && <p className="error">{errorPassword}</p>}
-            {errorPasswordConfirm && <p className="error">{errorPasswordConfirm}</p>}
         </div>
 
         <p className='separator'>OR</p>

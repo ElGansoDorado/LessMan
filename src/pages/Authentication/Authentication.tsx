@@ -4,9 +4,7 @@ import { Outlet } from "react-router"
 
 export default function Authentication() {
     return <div className='authentication'>
-        <div></div>
-        <div>
+        <div className='container'></div>
             <Outlet />
-        </div>
     </div>
 }
