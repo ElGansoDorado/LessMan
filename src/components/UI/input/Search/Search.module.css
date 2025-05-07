@@ -9,8 +9,12 @@
     align-items: center;
     gap: 8px;
 
-    background-color: #90C3BA;
+    background-color: var(--main-color-ocean);
     color: #FFF;
+}
+
+.box::placeholder {
+    color: var(--main-color-brown);
 }
 
 .input {

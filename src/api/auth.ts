@@ -1,9 +1,14 @@
-import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, onAuthStateChanged, NextOrObserver, User, Unsubscribe } from "firebase/auth";
 import { redirect } from "react-router";
 
 import firebaseApp from "../configs/firebaseConfig";
 
 const auth = getAuth(firebaseApp);
+
+interface FirebaseError {
+    code: string;
+    message: string;
+}
 
 function getUserId() {
     if (auth.currentUser) {
@@ -14,27 +19,35 @@ function getUserId() {
     }
 }
 
-export async function register({request}: any) {
+export function setStateChangeHandler(func : NextOrObserver<User>): Unsubscribe {
+    return onAuthStateChanged(auth, func);
+}
+
+export async function register({request} : {request: Request}) {
+
     const fd = await request.formData();
     try {
-        const cr = await createUserWithEmailAndPassword( auth, fd.get('email'), fd.get('password'));
+        const cr = await createUserWithEmailAndPassword( auth, fd.get('email') as string, fd.get('password') as string);
         window.localStorage.setItem('user-id', cr.user.uid);
         return redirect('/'); 
     }
     catch(err : any) {
-        return err.code;
+        const error = err as FirebaseError;
+        return error.code;
     }
 }
 
-export async function login({request} : any) {
+export async function login({request} : {request: Request}) {
+    console.log(request);
     const fd = await request.formData();
     try {
-        const cr = await signInWithEmailAndPassword( auth, fd.get('email'), fd.get('password'));
+        const cr = await signInWithEmailAndPassword( auth, fd.get('email') as string, fd.get('password') as string);
         window.localStorage.setItem('user-id', cr.user.uid);
         return redirect('/');
     }
-    catch (err : any) {
-        return err.code;
+    catch (err) {
+        const error = err as FirebaseError;
+        return error.code;
     }
 }
 

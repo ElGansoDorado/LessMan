@@ -6,8 +6,13 @@ import { faHome, faCircleUser, faBell, faTicket, faList, faDoorOpen } from '@for
 
 import { useState } from 'react'
 import Search from '../UI/input/Search/Search'
+import { UserInfo } from 'firebase/auth'
 
-export default function Header() {
+type Props = {
+    user: UserInfo;
+}
+
+export default function Header({ user }: Props) {
     const [search, setSearch] = useState('');
 
     return <header className={classes.header}>
@@ -19,32 +24,38 @@ export default function Header() {
             <ul className={classes.menu}>
                 <li data-tooltip="Poster">
                     <NavLink to={'/poster'}>
-                        <FontAwesomeIcon icon={faList} color='#F98E5D' />
+                        <FontAwesomeIcon icon={faList} />
                     </NavLink>
                 </li>
                 <li data-tooltip="Home">
                     <NavLink to={'/'}>
-                        <FontAwesomeIcon icon={faHome} color='#F98E5D' />
+                        <FontAwesomeIcon icon={faHome} />
                     </NavLink>
                 </li>
                 <li data-tooltip="Tickets">
-                    <FontAwesomeIcon icon={faTicket} color='#F98E5D' />
+                    <FontAwesomeIcon icon={faTicket} />
                 </li>
                 <li data-tooltip="News">
-                    <FontAwesomeIcon icon={faBell} color='#F98E5D' />
+                    <FontAwesomeIcon icon={faBell} />
                 </li>
 
             </ul>
 
             <hr className={classes.separator} />
+            {
+                user ? <>
+                    <NavLink to={'/profile'} data-tooltip="Profile">
+                        <FontAwesomeIcon icon={faCircleUser} size='2x' />
+                    </NavLink>
 
-            <NavLink to={'/sign-up'} data-tooltip="Profile">
-                <FontAwesomeIcon icon={faCircleUser} color='#F98E5D' size='2x' />
-            </NavLink>
+                    <p>{user?.email}</p>
 
-            <NavLink to={'/logout'}>
-                <FontAwesomeIcon icon={faDoorOpen} color='#F98E5D' />
-            </NavLink>
+                    <NavLink to={'/logout'}>
+                        <FontAwesomeIcon icon={faDoorOpen} />
+                    </NavLink>
+                </> :
+                    <p> <NavLink to={'/authentication/sign-in'}>Sign In</NavLink> or <NavLink to={'/authentication/sign-up'}> Sign Up</NavLink></p>
+            }
         </div>
     </header>
 }

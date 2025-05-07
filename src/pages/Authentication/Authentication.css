@@ -30,11 +30,11 @@
 }
 
 .authentication form {
-    background-color: #27464C;
+    background-color: var(--main-color-dark-blue);
 }
 
 .authentication .title {
-    color: #f98E5D;
+    color: var(--main-color-orange);
     font: 600 32px/120% 'Segoe UI';
 }
 
@@ -44,7 +44,7 @@
 
     font: 600 16px/120% 'Segoe UI';
     text-transform: uppercase;
-    color: #90C3BA;
+    color: var(--main-color-ocean);
 
     display: flex;
     justify-content: space-between;
@@ -57,8 +57,8 @@
     width: 45%;
     height: 1px;
 
-    color: #90C3BA;
-    background-color: #90C3BA;
+    color: var(--main-color-ocean);
+    background-color: var(--main-color-ocean);
 }
 
 .authentication .via-website {
@@ -72,7 +72,7 @@
     height: 35px;
 
     border-radius: 50%;
-    border: 1px solid #90C3BA;
+    border: 1px solid var(--main-color-ocean);
 
     color: #FFF;
     cursor: pointer;
@@ -83,7 +83,7 @@
 }
 
 .authentication .via-website li:hover {
-    background-color: #f98E5D;
+    background-color: var(--main-color-orange);
 }
 
 .authentication .submit {
@@ -97,7 +97,7 @@
 
     color: #FFF;
     font: 600 18px/22px 'Segoe UI';
-    background-color: #f98E5D;
+    background-color: var(--main-color-orange);
 }
 
 .authentication .submit .error {
@@ -110,7 +110,7 @@
     display: flex;
     justify-content: space-between;
 
-    color: #90C3BA;
+    color: var(--main-color-ocean);
     font: 400 12px/16px 'Segoe UI';
 }
 
@@ -120,5 +120,5 @@
 }
 
 .authentication .helper p:hover {
-    color: #f98E5D;
+    color: var(--main-color-orange);
 }

@@ -16,12 +16,8 @@
     padding: 0 0 4px;
 
     font: 600 15px/18px 'Segoe UI';
-    color: #f98E5D;
-    border-bottom: 1px solid #90C3BA;
-
-    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    color: var(--main-color-orange);
+    border-bottom: 1px solid var(--main-color-ocean);
 }
 
 .input.error {
@@ -29,7 +25,7 @@
 }
 
 .input::placeholder {
-    color: #90C3BA;
+    color: var(--main-color-ocean);
     font: 400 12px/16px 'Segoe UI';
 }
 
@@ -38,9 +34,9 @@
 }
 
 .input:hover {
-    border-bottom-color: #f98E5D;
+    border-bottom-color: var(--main-color-orange);
 }
 
 .input:focus {
-    border-bottom-color: #f98E5D;
+    border-bottom-color: var(--main-color-orange);
 }

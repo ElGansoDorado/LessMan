@@ -17,8 +17,10 @@ body {
 
 	background-color: #FAFAFA;
 
-	--main-color-green: #90C3BA;
-	--main-color-black: #556366;
+	--main-color-dark-blue: #0F1F38;
+	--main-color-orange: #f55449;
+	--main-color-ocean: #357082;
+	--main-color-brown: #8e7970;
 }
 
 main {
