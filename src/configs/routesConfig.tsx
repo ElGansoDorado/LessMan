@@ -4,13 +4,13 @@ import { register, logout, login, onlyLoggedOut } from "../api/auth";
 
 
 import App from "../App";
-import Profile from "../pages/Profile/Profile";
-import Posters from "../pages/Posters/Posters";
-import SinglePoster from "../pages/SinglePoster/SinglePoster";
+import Profile from "../pages/profile/Profile";
+import Posters from "../pages/posters/Posters";
+import SinglePoster from "../pages/singlePoster/SinglePoster";
 
-import Authentication from "../pages/Authentication/Authentication";
-import SignUp from "../pages/SignUp/SignUp";
-import SignIn from "../pages/SignIn/SignIn";
+import Authentication from "../pages/authentication/Authentication";
+import SignUp from "../pages/signUp/SignUp";
+import SignIn from "../pages/signIn/SignIn";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

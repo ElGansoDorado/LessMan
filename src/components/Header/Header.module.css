@@ -34,7 +34,7 @@
 
 .menu {
     color: var(--main-color-orange);
-    font-size: 24px;
+    font-size: 18px;
     display: flex;
     gap: 12px;
 }
@@ -45,7 +45,7 @@ a {
 
 .logo {
     width: 35px;
-    height: 30px;
+    height: 35px;
 
     border-radius: 50%;
 

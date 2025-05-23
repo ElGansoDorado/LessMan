@@ -1,4 +1,4 @@
-import AuthInput from "../../components/UI/input/AuthInput/AuthInput";
+import AuthInput from "../../components/ui/input/authInput/AuthInput";
 
 import { useState } from "react";
 import { useFetcher } from "react-router";

@@ -4,7 +4,7 @@ import { Outlet } from 'react-router'
 import { useState, useEffect } from 'react';
 import { setStateChangeHandler } from './api/auth';
 import { UserInfo } from "firebase/auth";
-import Header from './components/Header/Header'
+import Header from './components/header/Header'
 
 function App() {
   const [user, setUser] = useState<UserInfo>();

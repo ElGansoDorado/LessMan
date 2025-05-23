@@ -21,6 +21,9 @@ body {
 	--main-color-orange: #f55449;
 	--main-color-ocean: #357082;
 	--main-color-brown: #8e7970;
+	--main-color-placeholder: #D3D3D3;
+
+	font-family: 'Manrope';
 }
 
 main {

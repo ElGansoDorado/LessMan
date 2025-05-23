@@ -1,23 +1,37 @@
-.box {
-    width: 100%;
+.container {
+    min-width: 350px;
     height: 40px;
 
-    padding: 5px 10px;
-    border-radius: 8px;
-
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    background-color: var(--main-color-ocean);
+    flex: 1;
+    position: relative;
     color: #FFF;
-}
-
-.box::placeholder {
-    color: var(--main-color-brown);
 }
 
 .input {
     width: 100%;
     height: 100%;
+
+    padding: 6px 36px;
+    border-radius: 8px;
+
+    background-color: var(--main-color-ocean);
+}
+
+.input::placeholder {
+    color: var(--main-color-placeholder);
+}
+
+.search,
+.clear {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.search {
+    left: 10px;
+}
+
+.clear {
+    right: 10px;
 }

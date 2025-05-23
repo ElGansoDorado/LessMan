@@ -1,4 +1,4 @@
-import classes from './PosterItem.module.css'
+import classes from './poster.module.css'
 
 type Prop = {
     title: string;
