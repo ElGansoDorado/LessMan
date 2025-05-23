@@ -1,8 +1,8 @@
 import classes from './Header.module.css'
 
-import { NavLink } from 'react-router'
+import { NavLink, Link } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faCircleUser, faBell, faTicket, faList, faDoorOpen } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faCircleUser, faBell, faTicket, faList } from '@fortawesome/free-solid-svg-icons'
 
 import { useState } from 'react'
 import Search from '../ui/input/search/Search'
@@ -14,6 +14,7 @@ type Props = {
 
 export default function Header({ user }: Props) {
     const [search, setSearch] = useState('');
+    const [profileShow, setProfileShow] = useState(false);
 
     return <header className={classes.header}>
         <div className={classes.container}>
@@ -43,19 +44,27 @@ export default function Header({ user }: Props) {
 
             <hr className={classes.separator} />
             {
-                user ? <>
-                    <NavLink to={'/profile'} data-tooltip="Profile">
-                        <FontAwesomeIcon icon={faCircleUser} size='2x' />
-                    </NavLink>
-
-                    <p>{user?.email}</p>
-
-                    <NavLink to={'/logout'}>
-                        <FontAwesomeIcon icon={faDoorOpen} />
-                    </NavLink>
-                </> :
-                    <p> <NavLink to={'/authentication/sign-in'}>Sign In</NavLink> or <NavLink to={'/authentication/sign-up'}> Sign Up</NavLink></p>
+                user ? <FontAwesomeIcon color='#f55449' icon={faCircleUser} size='2x' onClick={() => setProfileShow(!profileShow)}/> :
+                    <p> <Link to={'/auth/sign-in'}>Sign In</Link> or <Link to={'/auth/sign-up'}> Sign Up</Link></p>
             }
+        </div>
+
+        <div className={profileShow ? `${classes.profile} ${classes.show}` : classes.profile}>
+            <Link to={'/profile'} className={classes.card}>
+                <img src={user?.photoURL ?? '/'} alt="profile image" />
+
+                <span>
+                    <p>{user?.displayName}</p>
+                    <p>{user?.email}</p>
+                </span>
+            </Link>
+
+            <ul>
+                <li className={classes.button}>
+                    <p></p>
+                    <p className={classes.text}><Link to='/logout' onClick={() => setProfileShow(false)}>Exit</Link></p>
+                </li>
+            </ul>
         </div>
     </header>
 }

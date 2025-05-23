@@ -39,10 +39,6 @@
     gap: 12px;
 }
 
-a {
-    color: var(--main-color-orange);
-}
-
 .logo {
     width: 35px;
     height: 35px;
@@ -56,4 +52,72 @@ a {
     text-align: center;
     font: 600 18px/30px 'Courier New';
     vertical-align: middle;
+}
+
+.profile {
+    height: max-content;
+    width: max-content;
+
+    padding: 8px;
+
+    background-color: #FFF;
+    border-radius: 4px;
+
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    position: absolute;
+    right: 20px;
+    top: 80px;
+
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.profile.show {
+    opacity: 1;
+}
+
+.card {
+    padding: 6px;
+    border-radius: 4px;
+    display: flex;
+    gap: 12px;
+
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.card:hover {
+    background-color: var(--main-color-placeholder);
+}
+
+.card img {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+    background-color: var(--main-color-ocean);
+}
+
+.button {
+    color: var(--main-color-dark-blue);
+
+    display: flex;
+    gap: 4px;
+}
+
+.button .text {
+    flex: 1;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.button .text:hover {
+    background-color: var(--main-color-placeholder);
 }

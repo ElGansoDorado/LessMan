@@ -13,7 +13,7 @@
 
 .authentication .container {
     width: 380px;
-    height: 485px;
+    height: max-content;
     padding: 20px 40px;
 
     display: flex;
@@ -33,9 +33,24 @@
     background-color: var(--main-color-dark-blue);
 }
 
+.authentication .header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+}
+
 .authentication .title {
     color: var(--main-color-orange);
     font: 600 32px/120% 'Segoe UI';
+}
+
+.authentication .link {
+    color: #FFF;
+    font: 600 18px/120% 'Segoe UI';
+}
+
+.authentication .link:hover {
+    text-decoration: underline;
 }
 
 .authentication .separator {

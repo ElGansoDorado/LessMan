@@ -13,7 +13,7 @@ export default function Search({ value, setValue }: Props) {
         <FontAwesomeIcon icon={faMagnifyingGlass} className={classes.search} />
 
         <input className={classes.input}
-            placeholder='Search'
+            placeholder='Search...'
             type="text"
             value={value}
             onChange={(event) => setValue(event.target.value)} />

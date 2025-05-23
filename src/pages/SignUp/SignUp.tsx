@@ -1,13 +1,15 @@
 import AuthInput from "../../components/ui/input/authInput/AuthInput";
 
 import { useState } from "react";
-import { useFetcher } from "react-router";
+import { Link, useFetcher } from "react-router";
 
 export default function SignUp() {
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
 
+    const [errorName, setErrorName] = useState('');
     const [errorEmail, setErrorEmail] = useState('');
     const [errorPassword, setErrorPassword] = useState('');
     const [errorPasswordConfirm, setErrorPasswordConfirm] = useState('');
@@ -16,12 +18,14 @@ export default function SignUp() {
     const fetcher = useFetcher();
 
     const handleFormReset = () => {
+        setName('');
         setEmail('');
         setPassword('');
         setPasswordConfirm('');
     };
 
     const resetErrorMessages = () => {
+        setErrorName('');
         setErrorEmail('');
         setErrorPassword('');
         setErrorPasswordConfirm('');
@@ -41,6 +45,11 @@ export default function SignUp() {
 
     const validate = () => {
         resetErrorMessages();
+
+        if (!name) {
+            setErrorName('Имя пользователя не указано');
+            return false;
+        }
         if (!email) {
             setErrorEmail('Адрес электронной почты не указан!');
             return false;
@@ -64,15 +73,26 @@ export default function SignUp() {
     const handleFormSubmit = (evt: any) => {
         evt.preventDefault();
         if (validate()) {
-            fetcher.submit({ email, password },
-                { action: '/authentication/sign-up', method: 'post' });
+            fetcher.submit({ email, password, name },
+                { action: '/auth/sign-up', method: 'post' });
         }
     };
 
     return <form className='container' onSubmit={handleFormSubmit} onReset={handleFormReset}>
-        <h1 className='title'>Sign Up</h1>
+        <span className="header">
+            <h1 className='title'>Sign Up</h1>
+            <Link to="/auth/sign-in" className="link">Sign-in</Link>
+        </span>
         <div>
             <span className='box'>
+                <AuthInput
+                    id="name"
+                    type="text"
+                    label="Name"
+                    value={name}
+                    setValue={setName}
+                    error={errorName} />
+
                 <AuthInput
                     id="email"
                     type="email"
@@ -107,6 +127,7 @@ export default function SignUp() {
 
         <div className='submit'>
             <input name="submit" type="submit" value='Create an account' />
+            {errorName && <p className="error">{errorName}</p>}
             {errorEmail && <p className="error">{errorEmail}</p>}
             {errorPassword && <p className="error">{errorPassword}</p>}
             {errorPasswordConfirm && <p className="error">{errorPasswordConfirm}</p>}

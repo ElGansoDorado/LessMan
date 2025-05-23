@@ -20,7 +20,7 @@ const router = createBrowserRouter(
       <Route path=":id" element={<SinglePoster />} loader={getPoster} />
 
       <Route path="logout" loader={logout} />
-      <Route path="authentication" element={<Authentication />}>
+      <Route path="auth" element={<Authentication />}>
         <Route path="sign-up" element={<SignUp />} loader={onlyLoggedOut} action={register} />
         <Route path="sign-in" element={<SignIn />} loader={onlyLoggedOut} action={login} />
 

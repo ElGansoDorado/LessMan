@@ -1,7 +1,7 @@
 import AuthInput from "../../components/ui/input/authInput/AuthInput";
 
 import { useState } from "react";
-import { useFetcher } from "react-router";
+import { Link, useFetcher } from "react-router";
 
 export default function SignIn() {
     const [email, setEmail] = useState('');
@@ -49,12 +49,15 @@ export default function SignIn() {
         evt.preventDefault();
         if (validate()) {
             fetcher.submit({ email, password },
-                { action: '/authentication/sign-in', method: 'post' });
+                { action: '/aut/sign-in', method: 'post' });
         }
     };
 
     return <form className='container' onSubmit={handleFormSubmit} onReset={handleFormReset}>
-        <h1 className='title'>Sign In</h1>
+        <span className="header">
+            <h1 className='title'>Sign In</h1>
+            <Link to="/auth/sign-up" className="link">Sign-un</Link>
+        </span>
         <div>
             <span className='box'>
                 <AuthInput
