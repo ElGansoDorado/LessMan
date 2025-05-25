@@ -62,6 +62,11 @@ export default function Header({ user }: Props) {
             <ul>
                 <li className={classes.button}>
                     <p></p>
+                    <p className={classes.text}><Link to='/settings' onClick={() => setProfileShow(false)}>Settings</Link></p>
+                </li>
+
+                <li className={classes.button}>
+                    <p></p>
                     <p className={classes.text}><Link to='/logout' onClick={() => setProfileShow(false)}>Exit</Link></p>
                 </li>
             </ul>

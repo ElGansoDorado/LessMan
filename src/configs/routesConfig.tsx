@@ -1,10 +1,11 @@
 import { Route, createBrowserRouter, createRoutesFromElements } from "react-router";
 import { getAllPosts, getPoster } from "../api/getPosts";
-import { register, logout, login, onlyLoggedOut } from "../api/auth";
+import { register, logout, login, onlyLoggedOut, getUserInfo, updateUserInfo } from "../api/auth";
 
 
 import App from "../App";
 import Profile from "../pages/profile/Profile";
+import Settings from "../pages/settings/settings";
 import Posters from "../pages/posters/Posters";
 import SinglePoster from "../pages/singlePoster/SinglePoster";
 
@@ -16,6 +17,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route path="profile" element={<Profile />} />
+      <Route path="settings" element={<Settings />} loader={getUserInfo}  action={updateUserInfo}/>
       <Route path="poster" element={<Posters />} loader={getAllPosts} />
       <Route path=":id" element={<SinglePoster />} loader={getPoster} />
 

@@ -45,7 +45,7 @@ export default function SignIn() {
     };
 
 
-    const handleFormSubmit = (evt: any) => {
+    const handleFormSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
         evt.preventDefault();
         if (validate()) {
             fetcher.submit({ email, password },

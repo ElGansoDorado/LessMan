@@ -1,23 +1,31 @@
-import classes from "./Profile.module.css"
+import classes from "./Profile.module.css";
 
-import Img from '../../assets/react.svg'
+
 
 export default function Profile() {
     return <>
-        <section className={classes.about}>
-            <div className={classes.imgBox}>
-                <img src={Img} alt="img" />
-                <h2>Ganso Sodaro</h2>
-                <p>ganso</p>
+        <section className={classes.personal}>
+            <div className={classes.photo}>
+                <img src={""} alt="profile photo" className={classes.img} />
+                {/* <FontAwesomeIcon icon={faDownload} className={classes.icon} /> */}
+                {/* <input
+                    type="file"
+                    className={classes.load}
+                    accept="image/*"
+                    onChange={handleImageChange} /> */}
             </div>
-            <button className={classes.button}>Edit profile</button>
-            <div>0 follower .  0 following</div>
+            <div>
+                <h1 className={classes.name}>Carambola</h1>
+                {/* <input type="text" className={classes.name} value={name} onChange={(evt) => setName(evt.target.value)} /> */}
+                <p className={classes.email}>ktotospochtoi@gmail.com</p>
+                <p className={classes.number}>+8 342 33-44-55</p>
+            </div>
+
+
         </section>
 
         <section>
-            <div>
-                
-            </div>
+
         </section>
     </>
 }
