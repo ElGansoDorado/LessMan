@@ -1,42 +1,42 @@
 html {
-	scroll-behavior: smooth;
-	overflow-x: hidden;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 html,
 body {
-	height: 100%;
-	background-color: #FAFAFA;
+  height: 100%;
+  background-color: #fafafa;
 }
 
 #root {
-	min-height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-	background-color: #FAFAFA;
+  background-color: #fafafa;
 
-	--main-color-dark-blue: #0F1F38;
-	--main-color-orange: #f55449;
-	--main-color-ocean: #357082;
-	--main-color-brown: #8e7970;
-	--main-color-placeholder: #D3D3D3;
+  --main-color-dark-blue: #0f1f38;
+  --main-color-orange: #f55449;
+  --main-color-ocean: #357082;
+  --main-color-brown: #8e7970;
+  --main-color-placeholder: #d3d3d3;
 
-	font-family: 'Manrope';
+  font-family: "Manrope";
 }
 
 main {
-	height: max-content;
+  height: max-content;
 
-	padding: 60px 20px;
-	flex: 1 1 auto;
-	display: flex;
-	gap: 32px;
+  padding: 60px 20px;
+  flex: 1 1 auto;
+  display: flex;
+  gap: 32px;
 
-	position: relative;
+  position: relative;
 }
 
 a {
-	color: currentColor;
+  color: currentColor;
 }

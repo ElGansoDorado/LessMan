@@ -1,27 +1,27 @@
 .container {
-    width: 225px;
-    height: 375px;
+  width: 225px;
+  height: 375px;
 
-    padding: 8px 12px;
-    border-radius: 8px;
-    background-color: #5F4F54;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background-color: #5f4f54;
 
-    color: #FFF;
+  color: #fff;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .teg {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }
 
 .new {
-    padding: 0 12px;
-    border-radius: 8px;
-    vertical-align: text-top;
-    background-color: #90C3BA;
+  padding: 0 12px;
+  border-radius: 8px;
+  vertical-align: text-top;
+  background-color: #90c3ba;
 }
