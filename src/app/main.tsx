@@ -2,10 +2,13 @@ import "./index.css";
 import "./reset.css";
 
 import { createRoot } from "react-dom/client";
+import { StrictMode } from "react";
 import { RouterProvider } from "react-router";
 
-import router from "./routers.tsx";
+import { router } from "./router.tsx";
 
 createRoot(document.getElementById("root")!).render(
-  <RouterProvider router={router} />,
+  <StrictMode>
+    <RouterProvider router={router} />
+  </StrictMode>
 );

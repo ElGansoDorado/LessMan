@@ -2,7 +2,7 @@ import { Outlet } from "react-router";
 import { useState, useEffect } from "react";
 import { setStateChangeHandler } from "../shared/api/auth";
 import { UserInfo } from "firebase/auth";
-import Header from "../components/ui/header/Header";
+import Header from "@/features/header";
 
 function App() {
   const [user, setUser] = useState<UserInfo>();
@@ -18,8 +18,7 @@ function App() {
     };
   }, []);
 
-  return (
-    <>
+  return <>
       <Header user={user as UserInfo} />
 
       <main>
@@ -28,7 +27,6 @@ function App() {
 
       <footer>footer</footer>
     </>
-  );
 }
 
 export default App;
