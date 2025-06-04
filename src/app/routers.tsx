@@ -1,17 +1,17 @@
 import { Route, createBrowserRouter, createRoutesFromElements } from "react-router";
-import { getAllPosts, getPoster } from "../api/getPosts";
-import { register, logout, login, onlyLoggedOut, getUserInfo, updateUserInfo } from "../api/auth";
+import { getAllPosts, getPoster } from "@/shared/api/getPosts";
+import { register, logout, login, onlyLoggedOut, getUserInfo, updateUserInfo } from "@/shared/api/auth";
 
 
-import App from "../App";
-import Profile from "../pages/profile/Profile";
-import Settings from "../pages/settings/settings";
-import Posters from "../pages/posters/Posters";
-import SinglePoster from "../pages/singlePoster/SinglePoster";
+import App from "./App";
+import Profile from "@/pages/profile/Profile";
+import Settings from "@/pages/settings/Settings";
+import Posters from "@/pages/posters/Posters";
+import SinglePoster from "@/pages/singlePoster/SinglePoster";
 
-import Authentication from "../pages/authentication/Authentication";
-import SignUp from "../pages/signUp/SignUp";
-import SignIn from "../pages/signIn/SignIn";
+import Authentication from "@/pages/authentication/Authentication";
+import SignUp from "@/pages/signUp/SignUp";
+import SignIn from "@/pages/signIn/SignIn";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

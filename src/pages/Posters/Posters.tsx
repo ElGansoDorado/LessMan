@@ -1,6 +1,6 @@
 import classes from "./Posters.module.css"
 
-import PosterItem from "../../components/poster/poster"
+import PosterItem from "../../components/ui/poster/poster"
 import { useLoaderData } from "react-router";
 import { Link } from "react-router";
 

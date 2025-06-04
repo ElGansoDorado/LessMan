@@ -1,10 +1,8 @@
-import './App.css'
-
 import { Outlet } from 'react-router'
 import { useState, useEffect } from 'react';
-import { setStateChangeHandler } from './api/auth';
+import { setStateChangeHandler } from '../shared/api/auth';
 import { UserInfo } from "firebase/auth";
-import Header from './components/header/Header'
+import Header from '../components/ui/header/Header'
 
 function App() {
   const [user, setUser] = useState<UserInfo>();

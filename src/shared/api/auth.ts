@@ -2,7 +2,7 @@ import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPas
 import { getDatabase, ref, set, get, query } from 'firebase/database';
 import { redirect } from "react-router";
 
-import firebaseApp from "../configs/firebaseConfig";
+import firebaseApp from "../firebase.config";
 
 const database = getDatabase(firebaseApp);
 const auth = getAuth(firebaseApp);
@@ -10,6 +10,14 @@ const auth = getAuth(firebaseApp);
 interface FirebaseError {
     code: string;
     message: string;
+}
+
+type UserInfo = {
+    photo: string;
+    name: string;
+    desc: string;
+    telegram: string;
+    instagram: string;
 }
 
 function getUserId() {
@@ -66,13 +74,15 @@ export async function updateUserInfo({ request }: { request: Request }) {
 
     const fd = await request.formData();
 
-    const newUserInfo = {
+    const newUserInfo : UserInfo= {
         photo: fd.get('photo') as string,
         name: fd.get('name') as string,
         desc: fd.get('desc') as string,
         telegram: fd.get('telegram') as string,
         instagram: fd.get('instagram') as string,
     }
+
+    window.localStorage.setItem('user-info', JSON.stringify(newUserInfo));
 
     const db = ref(database, `users/${currentUserId}/info`);
     await set(db, newUserInfo);
@@ -84,6 +94,11 @@ export async function getUserInfo() {
 
     if (!currentUserId) {
         return redirect('/profile');
+    }
+
+    if (window.localStorage.getItem('user-info') !== null) {
+        const user : UserInfo = JSON.parse(window.localStorage.getItem('user-info') as string);
+        return user;
     }
 
     const r = ref(database, `users/${currentUserId}/info`);

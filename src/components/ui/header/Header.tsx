@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faCircleUser, faBell, faTicket, faList } from '@fortawesome/free-solid-svg-icons'
 
 import { useState } from 'react'
-import Search from '../ui/input/search/Search'
+import Search from '../../common/input/search/Search'
 import { UserInfo } from 'firebase/auth'
 
 type Props = {
