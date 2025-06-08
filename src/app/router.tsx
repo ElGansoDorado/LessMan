@@ -17,12 +17,12 @@ export const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: ROUTES.POSTERS,
-        lazy: () => import("@/features/posters-list/posters-list.page"),
+        path: ROUTES.EVENTS,
+        lazy: () => import("@/features/events-list/events-list.page"),
       },
       {
-        path: ROUTES.POSTER,
-        lazy: () => import("@/features/poster/poster.page"),
+        path: ROUTES.EVENT,
+        lazy: () => import("@/features/event/event.page"),
         loader: getPoster,
       },
       {
@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
       },
       {
         path: ROUTES.HOME,
-        loader: () => redirect(ROUTES.POSTERS),
+        loader: () => redirect(ROUTES.EVENTS),
       },
     ],
   },

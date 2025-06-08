@@ -2,7 +2,7 @@ import { PathParams, ROUTES } from "@/shared/model/routes";
 import { useParams } from "react-router";
 
 function PosterPage() {
-    const params = useParams<PathParams[typeof ROUTES.POSTER]>();
+    const params = useParams<PathParams[typeof ROUTES.EVENT]>();
     return <div>Poster page {params.posterId}</div>
 }
 

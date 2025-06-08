@@ -34,12 +34,12 @@ export default function Header({ user }: Props) {
 
                 <ul className={classes.menu}>
                     <li data-tooltip="Poster">
-                        <NavLink to={ROUTES.POSTERS}>
+                        <NavLink to={ROUTES.EVENTS}>
                             <FontAwesomeIcon icon={faList} />
                         </NavLink>
                     </li>
                     <li data-tooltip="Home">
-                        <NavLink to={href(ROUTES.POSTER, { posterId: "24" })}>
+                        <NavLink to={href(ROUTES.EVENT, { eventId: "24" })}>
                             <FontAwesomeIcon icon={faHome} />
                         </NavLink>
                     </li>

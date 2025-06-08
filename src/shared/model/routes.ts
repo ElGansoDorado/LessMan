@@ -5,13 +5,13 @@ export const ROUTES = {
   LOGIN: "/login",
   PROFILE: "/profile",
   REGISTER: "/register",
-  POSTERS: "/posters",
-  POSTER: "/posters/:posterId",
+  EVENTS: "/events",
+  EVENT: "/events/:eventId",
 } as const;
 
 export type PathParams = {
-  [ROUTES.POSTER]: {
-    posterId: string;
+  [ROUTES.EVENT]: {
+    eventId: string;
   };
 };
 

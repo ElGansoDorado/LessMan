@@ -1,0 +1,121 @@
+getAllEvents:
+  summary: Get all event posters
+  tags: [Events]
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: List of event posters
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/schemas/Event'
+    '401':
+      $ref: '../shared/responses.yaml#/UnauthorizedError'
+    
+createEvent:
+  summary: Create a new event poster
+  tags: [Events]
+  security:
+    - bearerAuth: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '#/schemas/EventCreate'
+  responses:
+    '201':
+      description: Event created successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/schemas/Event'
+    '401':
+      $ref: '../shared/responses.yaml#/UnauthorizedError'
+
+deleteEvent:
+  summary: Delete an event poster
+  tags: [Events]
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: eventId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '204':
+      description: Event deleted successfully
+    '401':
+      $ref: '../shared/responses.yaml#/UnauthorizedError'
+    '404':
+      $ref: '../shared/responses.yaml#/NotFoundError'
+    
+
+
+schemas:
+  EventBase:
+    type: object
+    properties:
+      title:
+        type: string
+        example: "Jazz Festival"
+      description:
+        type: string
+        example: "Annual international jazz event"
+      date:
+        type: string
+        format: date-time
+        example: "2023-07-15T19:00:00Z"
+      location:
+        type: string
+        example: "Central Park, New York"
+      imageUrl:
+        type: string
+        format: uri
+        example: "https://example.com/posters/jazz-festival.jpg"
+      price:
+        type: number
+        minimum: 0
+        example: 25.99
+      category:
+        type: string
+        enum: [concert, exhibition, festival, theater, sport, other]
+        example: "festival"
+      isPublic:
+        type: boolean
+        default: true
+  Event:
+    allOf:
+      - $ref: '#/schemas/EventBase'
+      - type: object
+        required:
+          - id
+          - title
+          - date
+          - organizerId
+        properties:
+          id:
+            type: string
+            example: "evt_abc123"
+          organizerId:
+            type: string
+            example: "user_xyz456"
+          createdAt:
+            type: string
+            format: date-time
+          updatedAt:
+            type: string
+            format: date-time
+  EventCreate:
+    allOf:
+      - $ref: '#/schemas/EventBase'
+      - type: object
+        required:
+          - title
+          - date
+        properties: {}
