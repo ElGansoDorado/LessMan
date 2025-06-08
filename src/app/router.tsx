@@ -1,20 +1,18 @@
-import {
-  createBrowserRouter,
-  redirect,
-} from "react-router";
+import { createBrowserRouter, redirect } from "react-router";
 import { getPoster } from "@/shared/api/getPosts";
-import {
-  register,
-  login,
-  onlyLoggedOut,
-} from "@/shared/api/auth";
+import { register, login, onlyLoggedOut } from "@/shared/api/auth";
 
-import { ROUTES } from "../shared/model/routes";
+import { ROUTES } from "@/shared/model/routes";
+import { Providers } from "./providers";
 import App from "./app";
 
 export const router = createBrowserRouter([
   {
-    element: <App />,
+    element: (
+      <Providers>
+        <App />
+      </Providers>
+    ),
     children: [
       {
         path: ROUTES.EVENTS,

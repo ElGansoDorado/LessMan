@@ -9,8 +9,8 @@ export const fetchClient = createFetchClient<ApiPaths>({
 
 export const rqClient = createClient(fetchClient);
 
-fetchClient.GET('/events').then(res => {
-    if(res.error) {
-        console.log(res.error.message);
-    }
-}) 
+fetchClient.GET("/events").then((res) => {
+  if (res.error) {
+    console.log(res.error.message);
+  }
+});

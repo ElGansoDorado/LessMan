@@ -13,7 +13,8 @@ function App() {
     setUser(__user);
   };
 
-  const isAuthPage = location.pathname === ROUTES.LOGIN || location.pathname === ROUTES.REGISTER;
+  const isAuthPage =
+    location.pathname === ROUTES.LOGIN || location.pathname === ROUTES.REGISTER;
 
   useEffect(() => {
     const unsubscribe = setStateChangeHandler(authStateChanged);
@@ -22,15 +23,17 @@ function App() {
     };
   }, []);
 
-  return <>
-    {!isAuthPage && <Header user={user as UserInfo} />}
+  return (
+    <>
+      {!isAuthPage && <Header user={user as UserInfo} />}
 
-    <main>
-      <Outlet />
-    </main>
+      <main>
+        <Outlet />
+      </main>
 
-    <footer>footer</footer>
-  </>
+      <footer>footer</footer>
+    </>
+  );
 }
 
 export default App;
