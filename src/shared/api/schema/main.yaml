@@ -12,5 +12,8 @@ paths:
       $ref: "./endpoints/posters.yaml#/createEvent"
 
   /events/{eventId}:
+    get:
+      $ref: "./endpoints/posters.yaml#/getEvent"
+
     delete:
       $ref: "./endpoints/posters.yaml#/deleteEvent"

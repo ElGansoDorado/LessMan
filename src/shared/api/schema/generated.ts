@@ -73,7 +73,35 @@ export interface paths {
       path?: never;
       cookie?: never;
     };
-    get?: never;
+    /** Get single event poster by ID */
+    get: {
+      parameters: {
+        query?: never;
+        header?: never;
+        path: {
+          /**
+           * @description ID of the event to retrieve
+           * @example evt_abc123
+           */
+          eventId: string;
+        };
+        cookie?: never;
+      };
+      requestBody?: never;
+      responses: {
+        /** @description Event poster details */
+        200: {
+          headers: {
+            [name: string]: unknown;
+          };
+          content: {
+            "application/json": components["schemas"]["Event"];
+          };
+        };
+        401: components["responses"]["UnauthorizedError"];
+        404: components["responses"]["NotFoundError"];
+      };
+    };
     put?: never;
     post?: never;
     /** Delete an event poster */
@@ -138,8 +166,6 @@ export interface components {
         | "theater"
         | "sport"
         | "other";
-      /** @default true */
-      isPublic: boolean;
     };
     Event: components["schemas"]["EventBase"] & {
       /** @example evt_abc123 */

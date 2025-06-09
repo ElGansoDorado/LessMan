@@ -1,20 +1,14 @@
 import classes from "./poster.module.css";
+import { ApiSchemas } from "@/shared/api/schema";
 
-type Prop = {
-  title: string;
-  text: string;
-};
-
-export default function PosterItem({ title, text }: Prop) {
+export default function EventPoster({ event }: { event: ApiSchemas["Event"] }) {
   return (
     <article className={classes.container}>
-      <div className={classes.teg}>
-        <p className={classes.new}>new</p>
-      </div>
+      <div className={classes.teg}></div>
 
       <div className={classes.info}>
-        <h3>{title}</h3>
-        <p>{text}</p>
+        <h3>{event.title}</h3>
+        <p>{event.description}</p>
       </div>
     </article>
   );

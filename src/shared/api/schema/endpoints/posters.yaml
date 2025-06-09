@@ -36,6 +36,31 @@ createEvent:
     "401":
       $ref: "../shared/responses.yaml#/UnauthorizedError"
 
+getEvent:
+  summary: Get single event poster by ID
+  tags: [Events]
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: eventId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: ID of the event to retrieve
+      example: "evt_abc123"
+  responses:
+    "200":
+      description: Event poster details
+      content:
+        application/json:
+          schema:
+            $ref: "#/schemas/Event"
+    "401":
+      $ref: "../shared/responses.yaml#/UnauthorizedError"
+    "404":
+      $ref: "../shared/responses.yaml#/NotFoundError"
+
 deleteEvent:
   summary: Delete an event poster
   tags: [Events]
@@ -84,9 +109,6 @@ schemas:
         type: string
         enum: [concert, exhibition, festival, theater, sport, other]
         example: "festival"
-      isPublic:
-        type: boolean
-        default: true
   Event:
     allOf:
       - $ref: "#/schemas/EventBase"

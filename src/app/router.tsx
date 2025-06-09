@@ -1,5 +1,4 @@
 import { createBrowserRouter, redirect } from "react-router";
-import { getPoster } from "@/shared/api/getPosts";
 import { register, login, onlyLoggedOut } from "@/shared/api/auth";
 
 import { ROUTES } from "@/shared/model/routes";
@@ -21,7 +20,6 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.EVENT,
         lazy: () => import("@/features/event/event.page"),
-        loader: getPoster,
       },
       {
         path: ROUTES.PROFILE,
