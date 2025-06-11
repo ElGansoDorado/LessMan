@@ -1,5 +1,4 @@
 import { createBrowserRouter, redirect } from "react-router";
-import { register, login, onlyLoggedOut } from "@/shared/api/auth";
 
 import { ROUTES } from "@/shared/model/routes";
 import { Providers } from "./providers";
@@ -28,14 +27,10 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.LOGIN,
         lazy: () => import("@/features/auth/login.page"),
-        loader: onlyLoggedOut,
-        action: login,
       },
       {
         path: ROUTES.REGISTER,
         lazy: () => import("@/features/auth/register.page"),
-        loader: onlyLoggedOut,
-        action: register,
       },
       {
         path: ROUTES.HOME,
