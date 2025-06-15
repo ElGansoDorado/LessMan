@@ -1,21 +1,26 @@
-.authentication {
-  width: max-content;
-  height: max-content;
-
-  margin: 0 auto;
-  background-color: #fff;
-
-  display: flex;
-  -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-  -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-}
-
-.authentication .container {
+.container {
   width: 380px;
-  height: max-content;
+  height: auto;
   padding: 20px 40px;
 
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.title {
+  font: 600 24px/120% 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container form {
   display: flex;
   flex-direction: column;
   gap: 32px;

@@ -44,7 +44,7 @@ const events: ApiSchemas["Event"][] = [
   },
 ];
 
-export const handlers = [
+export const eventHandlers = [
   http.get("/events", () => {
     return HttpResponse.json(events);
   }),

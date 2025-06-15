@@ -1,8 +1,8 @@
 import classes from "./Header.module.css";
 
 import { NavLink, Link, href } from "react-router";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ROUTES } from "@/shared/model/routes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
   faCircleUser,

@@ -4,6 +4,14 @@ info:
   version: 1.0.0
   description: API for managing event posters
 paths:
+  /auth/login:
+    post:
+      $ref: "./endpoints/auth.yaml#/login"
+
+  /auth/register:
+    post:
+      $ref: "./endpoints/auth.yaml#/register"
+
   /events:
     get:
       $ref: "./endpoints/posters.yaml#/getAllEvents"
