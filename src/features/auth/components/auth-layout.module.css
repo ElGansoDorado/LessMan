@@ -17,7 +17,12 @@
 }
 
 .title {
-  font: 600 24px/120% 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font:
+    600 24px/120% "Segoe UI",
+    Tahoma,
+    Geneva,
+    Verdana,
+    sans-serif;
 }
 
 .container form {

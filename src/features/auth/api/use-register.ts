@@ -3,16 +3,16 @@ import { ApiSchemas } from "@/shared/api/schema";
 import { ROUTES } from "@/shared/model/routes";
 import { useNavigate } from "react-router";
 
-export function useLogin() {
+export function useRegister() {
   const navigate = useNavigate();
 
-  const loginMutation = rqClient.useMutation("post", "/auth/login", {
+  const loginMutation = rqClient.useMutation("post", "/auth/register", {
     onSuccess() {
       navigate(ROUTES.HOME);
     },
   });
 
-  const login = (data: ApiSchemas["LoginRequest"]) => {
+  const regist = (data: ApiSchemas["RegisterRequest"]) => {
     loginMutation.mutate({ body: data });
   };
 
@@ -20,5 +20,5 @@ export function useLogin() {
     ? loginMutation.error.message
     : undefined;
 
-  return { login, isPending: loginMutation.isPending, errorMessage };
+  return { regist, isPending: loginMutation.isPending, errorMessage };
 }

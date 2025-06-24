@@ -18,7 +18,7 @@ const mockTokens = new Map<string, string>();
 export const authHandlers = [
   http.post("/auth/login", async ({ request }) => {
     const body = await request.json();
-    console.log("test")
+    console.log("test");
 
     const user = mockUsers.find((u) => u.email === body.email);
     const storedPassword = userPasswords.get(body.email);

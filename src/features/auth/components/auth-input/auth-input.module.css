@@ -28,7 +28,7 @@
 }
 
 .input:hover {
- background-color: var(--main-color-ocean-light);
+  background-color: var(--main-color-ocean-light);
 }
 
 .input:focus {
