@@ -3,6 +3,15 @@ info:
   title: Event Posters API
   version: 1.0.0
   description: API for managing event posters
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+
 paths:
   /auth/login:
     post:
@@ -11,6 +20,10 @@ paths:
   /auth/register:
     post:
       $ref: "./endpoints/auth.yaml#/register"
+
+  /auth/refresh:
+    post:
+      $ref: "./endpoints/auth.yaml#/refresh"
 
   /events:
     get:

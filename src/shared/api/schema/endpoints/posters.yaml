@@ -1,8 +1,6 @@
 getAllEvents:
   summary: Get all event posters
   tags: [Events]
-  security:
-    - bearerAuth: []
   responses:
     "200":
       description: List of event posters
@@ -39,8 +37,6 @@ createEvent:
 getEvent:
   summary: Get single event poster by ID
   tags: [Events]
-  security:
-    - bearerAuth: []
   parameters:
     - name: eventId
       in: path
