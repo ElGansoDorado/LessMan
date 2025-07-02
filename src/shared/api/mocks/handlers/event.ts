@@ -1,6 +1,7 @@
 import { HttpResponse } from "msw";
 import { http } from "../http";
 import { ApiSchemas } from "../../schema";
+import { verifyTokenOrThrow } from "../session";
 
 const events: ApiSchemas["Event"][] = [
   {
@@ -48,7 +49,8 @@ const events: ApiSchemas["Event"][] = [
 ];
 
 export const eventHandlers = [
-  http.get("/events", () => {
+  http.get("/events", async (ctx) => {
+    await verifyTokenOrThrow(ctx.request);
     return HttpResponse.json(events);
   }),
 
