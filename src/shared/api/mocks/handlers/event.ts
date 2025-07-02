@@ -1,7 +1,6 @@
 import { HttpResponse } from "msw";
 import { http } from "../http";
 import { ApiSchemas } from "../../schema";
-import { verifyTokenOrThrow } from "../session";
 
 const events: ApiSchemas["Event"][] = [
   {

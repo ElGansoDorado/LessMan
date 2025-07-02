@@ -12,7 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { useState } from "react";
-import Search from "@/components/common/input/search/Search";
+import Search from "@/shared/ui/input/search/Search";
 import { UserInfo } from "firebase/auth";
 
 type Props = {
