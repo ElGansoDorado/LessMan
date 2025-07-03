@@ -1,8 +1,8 @@
 import classes from "./Header.module.css";
 
 import { NavLink, Link, href } from "react-router";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ROUTES } from "@/shared/model/routes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
   faCircleUser,
@@ -12,8 +12,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { useState } from "react";
-import Search from "@/components/common/input/search/Search";
+import Search from "@/shared/ui/input/search/Search";
 import { UserInfo } from "firebase/auth";
+import { useSession } from "@/shared/model/session";
 
 type Props = {
   user: UserInfo;
@@ -22,6 +23,7 @@ type Props = {
 export default function Header({ user }: Props) {
   const [search, setSearch] = useState("");
   const [profileShow, setProfileShow] = useState(false);
+  const {session, logout} = useSession();
 
   return (
     <header className={classes.header}>
@@ -52,7 +54,7 @@ export default function Header({ user }: Props) {
         </ul>
 
         <hr className={classes.separator} />
-        {user ? (
+        {session ? (
           <FontAwesomeIcon
             color="#f55449"
             icon={faCircleUser}
@@ -62,8 +64,8 @@ export default function Header({ user }: Props) {
         ) : (
           <p>
             {" "}
-            <Link to={"/auth/sign-in"}>Sign In</Link> or{" "}
-            <Link to={"/auth/sign-up"}> Sign Up</Link>
+            <Link to={ROUTES.LOGIN}>Sign In</Link> or{" "}
+            <Link to={ROUTES.REGISTER}> Sign Up</Link>
           </p>
         )}
       </div>
@@ -94,9 +96,13 @@ export default function Header({ user }: Props) {
           <li className={classes.button}>
             <p></p>
             <p className={classes.text}>
-              <Link to="/logout" onClick={() => setProfileShow(false)}>
+              {/* <B to="/logout" onClick={() => setProfileShow(false)}>
                 Exit
-              </Link>
+              </B> */}
+              <button onClick={() => {
+                logout();
+                setProfileShow(false);
+                }}> Exit </button>
             </p>
           </li>
         </ul>

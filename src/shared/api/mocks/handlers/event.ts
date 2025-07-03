@@ -1,6 +1,7 @@
 import { HttpResponse } from "msw";
 import { http } from "../http";
 import { ApiSchemas } from "../../schema";
+import { verifyTokenOrThrow } from "../session";
 
 const events: ApiSchemas["Event"][] = [
   {
@@ -12,7 +13,8 @@ const events: ApiSchemas["Event"][] = [
     description: "Annual international jazz event",
     date: "2023-07-15T19:00:00Z",
     location: "Central Park, New York",
-    imageUrl: "string",
+    imageUrl:
+      "https://i.pinimg.com/736x/1f/ee/b1/1feeb126e2c1598d55d6832c9f92b41e.jpg",
     price: 25.99,
     category: "festival",
   },
@@ -25,7 +27,8 @@ const events: ApiSchemas["Event"][] = [
     description: "Performance by legendary rock bands of the 80s",
     date: "2023-08-20T20:00:00Z",
     location: "Madison Square Garden, New York",
-    imageUrl: "https://example.com/rock-concert.jpg",
+    imageUrl:
+      "https://i.pinimg.com/736x/21/d0/12/21d012c614d6180eed7cfaac9d3eeb05.jpg",
     price: 89.99,
     category: "concert",
   },
@@ -38,14 +41,16 @@ const events: ApiSchemas["Event"][] = [
     description: "Taste cuisines from around the world",
     date: "2023-09-10T12:00:00Z",
     location: "Downtown Square, Chicago",
-    imageUrl: "https://example.com/food-festival.jpg",
+    imageUrl:
+      "https://i.pinimg.com/736x/be/91/41/be91419e1942b6d9972f94b0f4f74ebe.jpg",
     price: 15.5,
     category: "other",
   },
 ];
 
-export const handlers = [
-  http.get("/events", () => {
+export const eventHandlers = [
+  http.get("/events", async (ctx) => {
+    await verifyTokenOrThrow(ctx.request);
     return HttpResponse.json(events);
   }),
 

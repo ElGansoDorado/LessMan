@@ -4,7 +4,7 @@ import { rqClient } from "@/shared/api/instance";
 import { Link, href } from "react-router";
 import { ROUTES } from "@/shared/model/routes";
 
-import EventPoster from "@/components/ui/poster/poster";
+import EventPoster from "@/shared/ui/poster/poster";
 
 function EventsListPage() {
   const eventsQuery = rqClient.useQuery("get", "/events");
